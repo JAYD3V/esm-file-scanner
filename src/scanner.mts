@@ -13,13 +13,30 @@ import { Dirent } from 'node:fs';
 type StrOrStrArr<T> = T | ArrayOfStrOrStrArr<T>;
 type ArrayOfStrOrStrArr<T> = Array<StrOrStrArr<T>>;
 
-
 const files: ArrayOfStrOrStrArr<string> = [];
-
-fileExtScanner.bind(files);
 
 const genErrMesg = '';
 
+export class DirectoryScanner {
+  private basepath = '';
+  private basename = '';
+
+  constructor(dirpath?: string){
+    if (dirpath) { this.directory = dirpath; }
+  }
+
+  recursiveScan(){
+    return '';
+  }
+
+  set directory(dirpath: string){
+    this.basepath = dirpath;
+  }
+
+  get directory(){
+    return this.basepath;
+  }
+}
 
 /**
   * **fileExtScanner** — _"Recursively scans a directory for all
@@ -31,8 +48,7 @@ const genErrMesg = '';
   * @param dirpath The dir where the search will be initiated.
   * @returns String array that contains the filepaths found.
   * */
-export function fileExtScanner(fileExt: string, dirpath: string)
-{
+export function fileExtScanner(fileExt: string, dirpath: string){
   try {
     let next = dirpath;
 
@@ -40,8 +56,7 @@ export function fileExtScanner(fileExt: string, dirpath: string)
 
     console.log('READING FROM: ' + dirpath);
 
-    contents.forEach((dirent: Dirent) =>
-    {
+    contents.forEach((dirent: Dirent) => {
       next = join(dirpath, dirent.name);
 
       if (dirent.isFile()) { files.push(next); }

@@ -1,66 +1,59 @@
 {
      // PROJECTS FILE STRUCTURE
      "include": [
-          // Only include 'src/*.ts' & 'src/*.mts' as source-code
-          "src/**/*.ts",
-          "src/**/*.mts",
+          "src/**/*"
      ],
 
      "exclude": [
-          // Don't include pkg or build files in source-code
           "node_modules/**/*",
-          "extension/**/*",
-          // Don't include JS, Declaration or Map files in source-code
-          "*.js",
-          "*.mjs",
-          "*.cjs",
-          "*.cts",
-          "*.d.ts",
-          "*.d.mts",
-          "*.*.map",
+          "types/**/*"
      ],
 
      "compilerOptions": {
-          // * Emissions *
-          "outDir": "extension/build",
-          "baseUrl": ".",
-          "typeRoots": ["node_modules/@types", "./types"],
-          "declaration": true,
-          "inlineSources": true,
-          "sourceMap": true,
-
           // * ECMAScript Configuration *
-          "lib": ["ES2022"],
-          "target": "ES2022",
-          "allowJs": false,
+          "lib": ["ES2021"],
+          "target": "ES2021",
+
+          // * Emissions *
+          "baseUrl": ".",
+          "outDir": "build/",
+          "declarationDir": "types/",
+          "typeRoots": ["node_modules/@types", "./types"],
 
           // * Module Configuration *
           "module": "NodeNext",
           "moduleResolution": "NodeNext",
           "resolveJsonModule": true,
+          "allowSyntheticDefaultImports": false,
+          "esModuleInterop": false,
 
-          // COMPILER STRICTNESS
-          "strict": false,
-          "alwaysStrict": false,
-          "strictPropertyInitialization": true,
+          // TRANSPILER CONFIGURATION
+          "declaration": true,
+          "listEmittedFiles": true,
+          "watch": false,
+
+          // TSC CHECKS
+          "noUncheckedIndexedAccess": true,
           "strictNullChecks": true,
+          "strictBindCallApply": false,
+
+          // TSC TYPES
           "strictFunctionTypes": true,
-          "strictBindCallApply": true,
+          "useUnknownInCatchVariables": true,
+          "exactOptionalPropertyTypes": true,
           "noImplicitAny": true,
           "noImplicitThis": true,
           "noImplicitReturns": true,
           "noImplicitOverride": true,
-          "noUnusedLocals": false,
-          "noUncheckedIndexedAccess": true,
+
+          // TSC-RULES: "tsc-enforced syntactic rules"
           "noPropertyAccessFromIndexSignature": true,
+          "noUnusedLocals": false,
           "allowUnreachableCode": false,
-          "exactOptionalPropertyTypes": true,
+          "strictPropertyInitialization": true,
 
-          // * Types *
-          "useUnknownInCatchVariables": true,
+          // TSC-RULES: "other"
+          "alwaysStrict": false, // Not necessary when the project is a "ECMAScript-Modules"
 
-          // * Transpiler Behavior *
-          "listEmittedFiles": true,
-          "watch": false
      }
 }

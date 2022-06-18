@@ -1,0 +1,61 @@
+{
+     "version": "2.0.0",
+     "tasks": [
+          {
+               "label": "BUILD | REPLACE",
+               "detail": "Delete all of the projects build files (*.js) & types ('*.d.ts'), then replaces them with updated types & build files.",
+               "type": "shell",
+               "dependsOn": [
+                    "REMOVE | BUILD & TYPES",
+                    "BUILD | UPDATE"
+               ],
+               "dependsOrder": "sequence",
+               "problemMatcher": "$tsc",
+               "presentation": {
+                    "echo": true,
+                    "reveal": "silent",
+                    "focus": false,
+                    "panel": "shared",
+                    "showReuseMessage": false,
+                    "clear": false,
+                    "group": "BUILD"
+               }
+          },
+          {
+               "label": "REMOVE | BUILD & TYPES",
+               "detail": "Remove all project build-files & types (deletes './types' & './build' directories)",
+               "type": "shell",
+               "command": "rm",
+               "args": [
+                    "-rv",
+                    "./build",
+                    "./types"
+               ],
+               "presentation": {
+                    "echo": true,
+                    "reveal": "silent",
+                    "focus": false,
+                    "panel": "shared",
+                    "showReuseMessage": false,
+                    "clear": false,
+                    "group": "BUILD"
+               }
+          },
+          {
+               "label": "BUILD | UPDATE",
+               "detail": "Run tsc to emit new files for all files that have been modified.",
+               "type": "shell",
+               "command": "tsc",
+               "problemMatcher": "$tsc",
+               "presentation": {
+                    "echo": true,
+                    "reveal": "silent",
+                    "focus": false,
+                    "panel": "shared",
+                    "showReuseMessage": false,
+                    "clear": false,
+                    "group": "BUILD"
+               }
+          }
+     ]
+}

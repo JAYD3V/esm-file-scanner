@@ -1,12 +1,11 @@
 # GIT, NPM & Dev-Env Configs
 .git/
-.vscode/
+.vscode/settings.json
 .eslintrc.json
 .eslintignore
 .prettierrc
 .gitignore
 .npmrc
-
 
 # Dependacies & Generated Proj-Files
 node_modules/
