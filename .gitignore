@@ -29,3 +29,6 @@ types/
 *.log
 *.log.*
 *.txt
+
+# Workspace
+test-dir/

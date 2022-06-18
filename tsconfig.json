@@ -1,24 +1,27 @@
 {
      // PROJECTS FILE STRUCTURE
      "include": [
-          "src/**/*"
+          "src/**/*.test.mts",
+          "src/**/*.test.ts",
+          "src/**/*.mts",
+          "src/**/*.ts",
      ],
 
      "exclude": [
           "node_modules/**/*",
+          "build/**/*",
           "types/**/*"
      ],
 
      "compilerOptions": {
           // * ECMAScript Configuration *
-          "lib": ["ES2021"],
-          "target": "ES2021",
+          "lib": ["ES2022"],
+          "target": "ES2022",
 
           // * Emissions *
           "baseUrl": ".",
           "outDir": "build/",
           "declarationDir": "types/",
-          "typeRoots": ["node_modules/@types", "./types"],
 
           // * Module Configuration *
           "module": "NodeNext",
@@ -32,10 +35,14 @@
           "listEmittedFiles": true,
           "watch": false,
 
-          // TSC CHECKS
+          // TSC CHECKS & ENFORCED SYNTAX/CODE-USAGE
           "noUncheckedIndexedAccess": true,
           "strictNullChecks": true,
-          "strictBindCallApply": false,
+          "strictPropertyInitialization": true,
+          "strictBindCallApply": true,
+          "noPropertyAccessFromIndexSignature": true,
+          "allowUnreachableCode": true,
+          "noUnusedLocals": false,
 
           // TSC TYPES
           "strictFunctionTypes": true,
@@ -45,12 +52,6 @@
           "noImplicitThis": true,
           "noImplicitReturns": true,
           "noImplicitOverride": true,
-
-          // TSC-RULES: "tsc-enforced syntactic rules"
-          "noPropertyAccessFromIndexSignature": true,
-          "noUnusedLocals": false,
-          "allowUnreachableCode": false,
-          "strictPropertyInitialization": true,
 
           // TSC-RULES: "other"
           "alwaysStrict": false, // Not necessary when the project is a "ECMAScript-Modules"
