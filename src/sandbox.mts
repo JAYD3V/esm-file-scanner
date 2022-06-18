@@ -1,8 +1,8 @@
-import { fileExtScanner, DirectoryScanner } from './scanner.mjs';
+import { fileExtScanner, TreeScanner } from './scanner.mjs';
 
 // const results = fileExtScanner('.log', './test-dir');
 
-const dirScanner = new DirectoryScanner();
+const dirScanner = new TreeScanner();
 
 const results = dirScanner.exec(
   '.log',

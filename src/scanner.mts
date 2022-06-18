@@ -27,7 +27,7 @@ type ScannerOpts = {
   searchType: SearchType;
 };
 
-export class DirectoryScanner {
+export class TreeScanner {
   // PRIVATE
   private basepath = '';
   private basename = '';
