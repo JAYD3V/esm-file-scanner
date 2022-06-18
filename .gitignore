@@ -1,5 +1,32 @@
-# gcc coverage testing tool files
+# GIT, NPM & Dev-Env Configs
+.git/
+.vscode/
+.eslintrc.json
+.eslintignore
+.prettierrc
+.gitignore
+.npmrc
 
-*.gcno
-*.gcda
-*.gcov
+
+# Dependacies & Generated Proj-Files
+node_modules/
+package-lock.json
+
+# TSC Build Transpilled Emissions
+build/
+types/
+*.js
+*.mjs
+*.d.ts
+*.d.mts
+
+# NO COMMON JS
+*.cjs
+*.cts
+*.d.cts
+*.cjs.map
+
+# Logging
+*.log
+*.log.*
+*.txt

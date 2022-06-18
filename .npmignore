@@ -1,0 +1,36 @@
+# SCM
+.gitignore
+
+# DEV-ENV CONFIGURATION
+.vscode/
+.eslintrc.json
+.eslintignore
+.prettierrc
+
+# SOURCE FILES
+src/**
+src/**
+tsconfig.json
+
+# SOURCE MAPS
+*.map.js
+*.map.mjs
+
+# NO COMMON JS
+*.cjs
+*.cts
+*.d.cts
+*.cjs.map
+
+# NON GENERATED PROJ CONFIG
+package.json
+.npmignore
+.npmrc
+
+# Temporary Files
+log/
+.tmp/
+.cache/
+*.log
+*.log.*
+*.txt

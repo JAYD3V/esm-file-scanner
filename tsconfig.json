@@ -1,0 +1,66 @@
+{
+     // PROJECTS FILE STRUCTURE
+     "include": [
+          // Only include 'src/*.ts' & 'src/*.mts' as source-code
+          "src/**/*.ts",
+          "src/**/*.mts",
+     ],
+
+     "exclude": [
+          // Don't include pkg or build files in source-code
+          "node_modules/**/*",
+          "extension/**/*",
+          // Don't include JS, Declaration or Map files in source-code
+          "*.js",
+          "*.mjs",
+          "*.cjs",
+          "*.cts",
+          "*.d.ts",
+          "*.d.mts",
+          "*.*.map",
+     ],
+
+     "compilerOptions": {
+          // * Emissions *
+          "outDir": "extension/build",
+          "baseUrl": ".",
+          "typeRoots": ["node_modules/@types", "./types"],
+          "declaration": true,
+          "inlineSources": true,
+          "sourceMap": true,
+
+          // * ECMAScript Configuration *
+          "lib": ["ES2022"],
+          "target": "ES2022",
+          "allowJs": false,
+
+          // * Module Configuration *
+          "module": "NodeNext",
+          "moduleResolution": "NodeNext",
+          "resolveJsonModule": true,
+
+          // COMPILER STRICTNESS
+          "strict": false,
+          "alwaysStrict": false,
+          "strictPropertyInitialization": true,
+          "strictNullChecks": true,
+          "strictFunctionTypes": true,
+          "strictBindCallApply": true,
+          "noImplicitAny": true,
+          "noImplicitThis": true,
+          "noImplicitReturns": true,
+          "noImplicitOverride": true,
+          "noUnusedLocals": false,
+          "noUncheckedIndexedAccess": true,
+          "noPropertyAccessFromIndexSignature": true,
+          "allowUnreachableCode": false,
+          "exactOptionalPropertyTypes": true,
+
+          // * Types *
+          "useUnknownInCatchVariables": true,
+
+          // * Transpiler Behavior *
+          "listEmittedFiles": true,
+          "watch": false
+     }
+}

@@ -1,0 +1,73 @@
+{
+  "name": "esm-file-scanner",
+  "version": "0.0.0",
+  "description": "PURE 100% TYPED ESM. This is a ECMAScript-Module that runs in the Node.js RTE. It was written in TypeScript, transpiled to JavaScript, and was built to be ESM from the start. If your using ESM &amp; TS, and want a package that simply just works, then this is it.",
+  "main": "build/main.mjs",
+  "scripts": {
+    "test": "mocha ./src/test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JAYD3V/esm-file-scanner.git"
+  },
+  "keywords": [
+    "ESM",
+    "TypeScript",
+    "Typed",
+    "Directory",
+    "File",
+    "Scanner",
+    "Extension",
+    "Recursive",
+    "Search",
+    "File",
+    "Type",
+    "File-Extension",
+    "FileExt",
+    "Scan",
+    "Node",
+    "TypeScript",
+    "ESM",
+    "TS",
+    "ECMAScript-Module",
+    "ES-Module",
+    "ES6-Module",
+    "Node",
+    "16",
+    "Node",
+    "14",
+    "Node",
+    "12",
+    "Node",
+    "18",
+    "Node",
+    "LTS",
+    "Node",
+    "Next",
+    "ESNext",
+    "ES2021",
+    "ES2022",
+    "TypeScript@latest",
+    "TypeScript@next",
+    "TypeScript@beta",
+    "RC",
+    "Release",
+    "TS-Node",
+    "@Types"
+  ],
+  "author": "Andrew Chambers <W3Dojo@Gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/JAYD3V/esm-file-scanner/issues"
+  },
+  "homepage": "https://github.com/JAYD3V/esm-file-scanner#readme",
+  "devDependencies": {
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.17.0",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.3"
+  }
+}
