@@ -5,3 +5,10 @@
 * @JAYD3V
 * @link Https://www.GitHub.com/JAYD3V/Alloy
 * */
+import { join, extname } from 'node:path';
+import { readdirSync } from 'node:fs';
+import { Dirent } from 'node:fs';
+
+type StrOrStrArr<T> = T | ArrayOfStrOrStrArr<T>;
+
+type ArrayOfStrOrStrArr<T> = Array<StrOrStrArr<T>>;
