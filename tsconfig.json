@@ -1,60 +1,63 @@
 {
-     // PROJECTS FILE STRUCTURE
-     "include": [
-          "src/**/*.test.mts",
-          "src/**/*.test.ts",
-          "src/**/*.mts",
-          "src/**/*.ts",
-     ],
+    // INCLUDE ALL `.mts` & `.ts` FILES THAT RESIDE IN THE `src/` DIR
+    "include": ["src/**/*.mts", "src/**/*.ts"],
 
-     "exclude": [
-          "node_modules/**/*",
-          "build/**/*",
-          "types/**/*"
-     ],
+    // EXCLUDE ALL FILES EMITTED BY TSC & ALL DEPENDENCIES
+    "exclude": [
+        ".code-recycling/",
+        "node_modules/",
+        "build/",
+        "types/",
+        "*.js",
+        "*.mjs",
+        "*.d.ts",
+        "*.d.mts",
+        "*.js.map",
+        "*.mjs.map"
+    ],
 
-     "compilerOptions": {
-          // * ECMAScript Configuration *
-          "lib": ["ES2022"],
-          "target": "ES2022",
+    "compilerOptions": {
+        // LATEST & GREATEST ECMAScript SUPPORT
+        "lib": ["ESNext"],
+        "target": "ES2022",
 
-          // * Emissions *
-          "baseUrl": ".",
-          "outDir": "build/",
-          "declarationDir": "types/",
+        // DEFINE THE BASE DIR & LOCATION OF THE EMITTED BUILD
+        "baseUrl": ".",
+        "outDir": "build/",
 
-          // * Module Configuration *
-          "module": "NodeNext",
-          "moduleResolution": "NodeNext",
-          "resolveJsonModule": true,
-          "allowSyntheticDefaultImports": false,
-          "esModuleInterop": false,
+        // DEFINE THE PROJECT AS ESM, RESOLVE OTHER MODULES AS ESM
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": false,
+        "esModuleInterop": false,
 
-          // TRANSPILER CONFIGURATION
-          "declaration": true,
-          "listEmittedFiles": true,
-          "watch": false,
+        // CONFIGURE EMITTED FILES
+        "declaration": true,
+        "sourceMap": true,
+        "inlineSources": true,
+        "watch": false,
 
-          // TSC CHECKS & ENFORCED SYNTAX/CODE-USAGE
-          "noUncheckedIndexedAccess": true,
-          "strictNullChecks": true,
-          "strictPropertyInitialization": true,
-          "strictBindCallApply": true,
-          "noPropertyAccessFromIndexSignature": true,
-          "allowUnreachableCode": true,
-          "noUnusedLocals": false,
+        // CLI CONFIGURATION
+        "listEmittedFiles": true,
 
-          // TSC TYPES
-          "strictFunctionTypes": true,
-          "useUnknownInCatchVariables": true,
-          "exactOptionalPropertyTypes": true,
-          "noImplicitAny": true,
-          "noImplicitThis": true,
-          "noImplicitReturns": true,
-          "noImplicitOverride": true,
+        // TYPES, TYPE-CHECKING, SYNTACTIC-RULES, ETC...
+        "strictFunctionTypes": true,
+        "useUnknownInCatchVariables": true,
+        "exactOptionalPropertyTypes": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "noImplicitOverride": true,
+        "noUncheckedIndexedAccess": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "strictBindCallApply": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "allowUnreachableCode": true,
+        "noUnusedLocals": false, // ON DURING PRODUCTION-MAINTENANCE & OFF DURING FEATURE-DEVELOPMENT
 
-          // TSC-RULES: "other"
-          "alwaysStrict": false, // Not necessary when the project is a "ECMAScript-Modules"
-
-     }
+        // This is added just to make it clear that it doesn't need to be turned on.
+        "alwaysStrict": false // ECMAScript Modules Enforce the "use strict" rules as part of the modules specification
+    }
 }

@@ -1,61 +1,95 @@
 {
-     "version": "2.0.0",
-     "tasks": [
-          {
-               "label": "BUILD | REPLACE",
-               "detail": "Delete all of the projects build files (*.js) & types ('*.d.ts'), then replaces them with updated types & build files.",
-               "type": "shell",
-               "dependsOn": [
-                    "REMOVE | BUILD & TYPES",
-                    "BUILD | UPDATE"
-               ],
-               "dependsOrder": "sequence",
-               "problemMatcher": "$tsc",
-               "presentation": {
-                    "echo": true,
-                    "reveal": "silent",
-                    "focus": false,
-                    "panel": "shared",
-                    "showReuseMessage": false,
-                    "clear": false,
-                    "group": "BUILD"
-               }
-          },
-          {
-               "label": "REMOVE | BUILD & TYPES",
-               "detail": "Remove all project build-files & types (deletes './types' & './build' directories)",
-               "type": "shell",
-               "command": "rm",
-               "args": [
-                    "-rv",
-                    "./build",
-                    "./types"
-               ],
-               "presentation": {
-                    "echo": true,
-                    "reveal": "silent",
-                    "focus": false,
-                    "panel": "shared",
-                    "showReuseMessage": false,
-                    "clear": false,
-                    "group": "BUILD"
-               }
-          },
-          {
-               "label": "BUILD | UPDATE",
-               "detail": "Run tsc to emit new files for all files that have been modified.",
-               "type": "shell",
-               "command": "tsc",
-               "problemMatcher": "$tsc",
-               "presentation": {
-                    "echo": true,
-                    "reveal": "silent",
-                    "focus": false,
-                    "panel": "shared",
-                    "showReuseMessage": false,
-                    "clear": false,
-                    "group": "BUILD"
-               }
-          }
-     ]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "TSC | NEW",
+            "detail": "\"Removes project build files and emits a new Project-build that is current\"",
+            "type": "shell",
+            "dependsOn": [
+                "TASK@\"esm-file-scanner\" | CLEAN THE BUILD",
+                "TASK@\"esm-file-scanner\" | NEW BUILD"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": "$tsc",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "group": "TSC"
+            }
+        },
+        {
+            "label": "TSC | CLEAN",
+            "detail": "\"Deletes all of the projects build files\"",
+            "type": "shell",
+            "command": "tsc",
+            "args": ["--clean"],
+            "problemMatcher": "$tsc",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "group": "TSC"
+            }
+        },
+        {
+            "label": "TSC | TRANSPILE (all)",
+            "detail": "\"Transpiles & emits all files (FYI: In big projects, this task can be a veracious devourer if resources)\"",
+            "type": "shell",
+            "command": "tsc",
+            "args": ["--build", ".", "--force"],
+            "problemMatcher": "$tsc",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "group": "TSC"
+            }
+        },
+        {
+            "label": "TSC | TRANSPILE (modified)",
+            "detail": "\"Transpiles & emits modified files\"",
+            "type": "shell",
+            "command": "tsc",
+            "args": ["--build", "."],
+            "problemMatcher": "$tsc",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "group": "TSC"
+            }
+        },
+        {
+            "label": "TSC | WATCHER",
+            "detail": "Execute `$ tsc` to build",
+            "type": "shell",
+            "command": "tsc",
+            "args": ["-w"],
+            "problemMatcher": ["$tsc-watch"],
+            "presentation": {
+                "echo": true,
+                "close": false,
+                "focus": false,
+                "revealProblems": "never",
+                "reveal": "never",
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true,
+                "group": "TSC"
+            }
+        }
+    ]
 }

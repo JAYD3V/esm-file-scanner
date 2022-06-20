@@ -1,0 +1,73 @@
+{
+//    "editor.fontSize": 13.25,
+//    "editor.fontWeight": "450",
+//    "editor.lineHeight": 17,
+   "editor.minimap.enabled": false,
+   "editor.minimap.scale": 2,
+   "editor.minimap.maxColumn": 85,
+   "editor.minimap.size": "proportional",
+   //   "npm.exclude": "",
+   "workbench.localHistory.exclude": {
+      "**/node_modules/**/*": true,
+      "**/build/**/*": true,
+      "**/types/**/*": true,
+      "**/typings/**/*": true,
+      "**/test-dir/**/*": true, // "DIR-NAME used when test reading from a dir"
+      "**/sandbox.*": true, // "FILE-NAME used when I want to test-execute a small bit of code"
+      "**/.vscode/settings.json": true,
+      "**/package-lock.json": true,
+      "**/LICENSE": true,
+      // FILE TYPES
+      "*.js": true,
+      "*.mjs": true,
+      "*.js.map": true,
+      "*.mjs.map": true,
+      "*.d.ts": true,
+      "*.d.mts": true,
+      "*.log": true,
+      "*.txt": true
+   },
+   "files.exclude": {
+      // ENTIRE DIRECTORIES
+      "**/.git/": true,
+      "**/node_modules/": true,
+      "**/extension/": false,
+      // CONFIGURATION FILES
+      "**/.editorconfig": true,
+      "**/.eslintrc.json": false,
+      "**/.gitignore": false,
+      "**/.prettierrc": false,
+      "**/.npmignore": true,
+      "**/.npmrc": true,
+      // PROJECT FILES
+      "**/package-lock.json": true,
+      "**/README.md": true,
+      "**/LICENSE": true,
+      // FILE TYPES
+      "**/*.mjs": false,
+      "**/*.js": false,
+      "**/map.mjs": false,
+      "**/map.js": false,
+      "**/*.d.ts": false,
+      "**/*.d.mts": false
+   },
+
+   "explorer.fileNesting.enabled": true,
+   "explorer.fileNesting.expand": false,
+   "explorer.fileNesting.patterns": {
+      "*.ts": "${capture}.js",
+      "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+      "*.mts": "${capture}.mjs, ${capture}.d.mts",
+      "*.mjs": "${capture}.mjs.map, ${capture}.min.mjs, ${capture}.d.mts",
+      "*.cts": "${capture}.js",
+      "*.cjs": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+      "*.jsx": "${capture}.js",
+      "*.tsx": "${capture}.ts",
+      ".eslintrc.json": ".prettierrc",
+      "tsconfig.json": "tsconfig.*.json",
+      "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, .npmrc",
+      ".gitignore": ".npmignore, .vscodeignore"
+   },
+
+   "typescript.tsdk": "./node_modules/typescript/lib"
+}

@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch via NPM",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run-script", "debug"],
+            "skipFiles": ["<node_internals>/**"],
+            "outFiles": [
+                "${workspaceFolder}/build/**/*.js",
+                "${workspaceFolder}/build/**/*.mjs"
+            ],
+        },
+
+        {
+            "name": "Launch TypeScript",
+            "type": "node",
+            "program": "${workspaceFolder}/build/sandobx.mts",
+            "request": "launch",
+            "outFiles": [
+                "${workspaceFolder}/build/**/*.js",
+                "${workspaceFolder}/build/**/*.mjs"
+            ],
+            "skipFiles": ["<node_internals>/**"]
+        }
+    ]
+}

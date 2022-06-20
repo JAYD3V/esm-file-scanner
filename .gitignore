@@ -1,6 +1,5 @@
 # GIT, NPM & Dev-Env Configs
 .git/
-.vscode/settings.json
 .eslintrc.json
 .eslintignore
 .prettierrc
@@ -31,4 +30,5 @@ types/
 *.txt
 
 # Workspace
-test-dir/
+__TEST-DIR__/
+.code-recycling
